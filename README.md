@@ -62,7 +62,7 @@ This project is deployed on Vercel.
 
 ---
 
-Built with ❤️ by [Your Name].
+Built with ❤️ by Mudassir Khan.
 
 ## Contact
 For any questions or feedback, feel free to reach out:
