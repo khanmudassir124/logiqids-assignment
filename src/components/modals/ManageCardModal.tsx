@@ -161,7 +161,7 @@ const ManageCardModal: React.FC<ManageCardModalProps> = ({ list, card, isOpen, o
           >
             {"Delete"}
           </button>
-          <div className=" flex justify-end items-center gap-2 mt-5 ">
+          <div className=" flex justify-end items-center gap-2 ">
             <button
               type="button"
               className=" justify-center min-w-20 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-200 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
