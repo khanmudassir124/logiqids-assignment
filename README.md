@@ -48,7 +48,6 @@ This project is deployed on Vercel.
 
 ### Frontend:
 - React.js
-- Next.js
 - Tailwind CSS (for styling)
 - React Beautiful DnD (for drag-and-drop functionality)
 
