@@ -20,7 +20,15 @@ export const AddList: React.FC<AddListProps> = ({}) => {
   };
 
   return isClicked ? (
-    <div className="bg-[#f1f2f4] min-w-[272px] h-fit mx-1 p-3 rounded-xl">
+    <div
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget)) {
+          setIsClicked(false);
+        }
+      }}
+      tabIndex={-1}
+      className="bg-[#f1f2f4] min-w-[272px] h-fit mx-1 p-3 rounded-xl"
+    >
       <div className="mb-3">
         <input
           type="text"
@@ -29,6 +37,12 @@ export const AddList: React.FC<AddListProps> = ({}) => {
           className="w-full pl-2 text-sm py-1 rounded-sm focus:outline-violet-800 focus:outline-2"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          // onBlur={(e) => {
+          //   console.log(e.relatedTarget);
+          //   if (!e.relatedTarget || !e.relatedTarget.closest("button")) {
+          //     setIsClicked(false);
+          //   }
+          // }}
           onKeyDown={(e) => {
             if (e.key === "Enter") {
               onAddListClick();
@@ -81,7 +95,14 @@ export const AddCard: React.FC<AddCardProps> = ({ list }) => {
   };
 
   return isClicked ? (
-    <div>
+    <div
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget)) {
+          setIsClicked(false);
+        }
+      }}
+      tabIndex={-1}
+    >
       <textarea
         rows={2}
         autoFocus

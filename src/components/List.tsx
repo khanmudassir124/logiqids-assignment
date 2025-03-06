@@ -1,14 +1,12 @@
 import { Draggable, DraggableProvided, DraggableStateSnapshot, Droppable, DroppableProvided } from "react-beautiful-dnd";
 import { IList } from "../types/global";
 import Card from "./Card";
-import { IoMdAdd } from "react-icons/io";
 import { MdDeleteOutline } from "react-icons/md";
 import { useState } from "react";
 import ConfirmationModal from "./modals/ConfirmationModal";
 import { useDispatch } from "react-redux";
 import { deleteList, updateList } from "../redux/reducers/boardReducer";
 import { AddCard } from "./AddCard";
-import { title } from "process";
 interface ListProps {
   list: IList;
   index: number;
@@ -34,7 +32,7 @@ const List: React.FC<ListProps> = ({ list, index }) => {
   return (
     <>
       <Draggable draggableId={`${list.id}`} index={index} key={list.id}>
-        {(listDraggableProvided: DraggableProvided, listSnapshot: DraggableStateSnapshot) => {
+        {(listDraggableProvided: DraggableProvided) => {
           return (
             <div
               className="flex relative box-border mx-1.5 flex-none flex-col self-start justify-between w-[272px] max-h-full pb-2 rounded-xl p-2 bg-[#f1f2f4] shadow-[0px_1px_1px_rgba(9,30,66,0.25),0px_0px_1px_rgba(9,30,66,0.31)] text-[#44546f] align-top whitespace-normal scroll-m-2"
@@ -77,7 +75,7 @@ const List: React.FC<ListProps> = ({ list, index }) => {
                   <MdDeleteOutline className="size-4" />
                 </span>
               </div>
-              <Droppable droppableId={`${list.id}`} type="ROW" direction="vertical"  ignoreContainerClipping={true} isCombineEnabled={true}>
+              <Droppable droppableId={`${list.id}`} type="ROW" direction="vertical" ignoreContainerClipping={true} isCombineEnabled={true}>
                 {(cardDroppableProvided: DroppableProvided) => (
                   <div className="flex flex-col" ref={cardDroppableProvided.innerRef} {...cardDroppableProvided.droppableProps}>
                     {list.cards.map((card, innerIndex: number) => (
